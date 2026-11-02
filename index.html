@@ -1,0 +1,532 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<title>Criativos & Produtos · Use Tricô</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..600&family=Inter:wght@400;500;600;700&display=swap">
+<style>
+/* Editorial report — elegante, tons claros e verdes; capa + KPIs + rankings com abas + cruzamento + briefing */
+:root{
+  --bg:#f3f5ee; --surface:#fffffe; --surface-2:#eef2e7; --ink:#1b2a22; --muted:#5c6b60;
+  --line:#dde3d4; --pine:#1f5d3f; --sage:#7fa389; --sage-soft:#e4ede1;
+  --good:#1f7a4d; --warn:#9a6a16; --warn-bg:#f6ecd4; --crit:#a23324; --crit-bg:#f6e0da;
+  --shadow:0 1px 2px rgba(27,42,34,.06),0 8px 24px rgba(27,42,34,.06);
+  --serif:"Fraunces",Georgia,"Times New Roman",serif;
+  --sans:"Inter",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0f140e; --surface:#161d14; --surface-2:#1c2519; --ink:#e7ede4; --muted:#9bac9c;
+  --line:#2a3527; --pine:#73b78c; --sage:#8fb79a; --sage-soft:#1e2a1c;
+  --good:#6fc394; --warn:#d6a74e; --warn-bg:#2c2514; --crit:#e08274; --crit-bg:#2e1b17;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); color-scheme:dark;
+}}
+:root[data-theme="dark"]{
+  --bg:#0f140e; --surface:#161d14; --surface-2:#1c2519; --ink:#e7ede4; --muted:#9bac9c;
+  --line:#2a3527; --pine:#73b78c; --sage:#8fb79a; --sage-soft:#1e2a1c;
+  --good:#6fc394; --warn:#d6a74e; --warn-bg:#2c2514; --crit:#e08274; --crit-bg:#2e1b17;
+  --shadow:0 1px 2px rgba(0,0,0,.4),0 10px 30px rgba(0,0,0,.35); color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);line-height:1.55;font-size:15.5px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(18px,env(safe-area-inset-left,0px));padding-right:max(18px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--serif);font-weight:560;text-wrap:balance;line-height:1.1;margin:0}
+h2{font-size:clamp(1.5rem,3.4vw,2.1rem);letter-spacing:-.01em;margin-bottom:.15em}
+h3{font-size:1.14rem;font-weight:600}
+p{margin:.5em 0}
+a{color:var(--pine);text-underline-offset:2px}
+.eyebrow{font-family:var(--sans);font-weight:650;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--pine)}
+.lede{color:var(--muted);font-size:1.02rem;max-width:62ch}
+.num{font-variant-numeric:tabular-nums}
+.sticky{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.sticky .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px}
+.sticky b{font-family:var(--serif);font-weight:600}
+.tag{font-size:.72rem;color:var(--muted);font-variant-numeric:tabular-nums}
+section{padding-block:34px;border-top:1px solid var(--line)}
+section:first-of-type{border-top:0}
+/* hero */
+.hero{padding-block:48px 30px}
+.hero h1{font-size:clamp(2.4rem,6.6vw,4.2rem);letter-spacing:-.02em;margin:.12em 0 .18em}
+.hero .sub{display:flex;gap:10px 22px;flex-wrap:wrap;color:var(--muted);font-size:.9rem;margin-top:14px}
+.hero .sub b{color:var(--ink)}
+.findings{list-style:none;padding:0;margin:26px 0 0;display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;counter-reset:f}
+.findings li{counter-increment:f;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px 16px 16px 46px;position:relative;box-shadow:var(--shadow);font-size:.92rem}
+.findings li::before{content:counter(f);position:absolute;left:14px;top:14px;width:22px;height:22px;border-radius:50%;background:var(--pine);color:#fff;font-size:.72rem;font-weight:700;display:grid;place-items:center;font-family:var(--sans)}
+:root[data-theme="dark"] .findings li::before,:root:not([data-theme="light"]) .findings li::before{color:#0f140e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .findings li::before{color:#0f140e}}
+/* kpi */
+.kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.kpi{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 15px;box-shadow:var(--shadow)}
+.kpi .k{font-size:.74rem;color:var(--muted);letter-spacing:.03em;text-transform:uppercase;font-weight:600}
+.kpi .v{font-family:var(--serif);font-size:1.7rem;font-weight:560;margin-top:4px;font-variant-numeric:tabular-nums}
+.kpi .d{font-size:.78rem;color:var(--muted);margin-top:2px}
+.note{background:var(--sage-soft);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.86rem;color:var(--ink)}
+/* status bar */
+.stbar{display:flex;height:16px;border-radius:999px;overflow:hidden;border:1px solid var(--line);margin:14px 0 10px}
+.stbar i{display:block}
+.stleg{display:flex;flex-wrap:wrap;gap:8px 16px;font-size:.82rem;color:var(--muted)}
+.dot{display:inline-block;width:10px;height:10px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+/* tabs */
+.tabs{display:flex;flex-wrap:wrap;gap:7px;margin:8px 0 16px}
+.tabs button{font-family:var(--sans);font-size:.82rem;font-weight:600;color:var(--muted);background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:7px 13px;cursor:pointer}
+.tabs button[aria-selected="true"]{background:var(--pine);color:#fff;border-color:var(--pine)}
+:root[data-theme="dark"] .tabs button[aria-selected="true"],:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{color:#0f140e}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .tabs button[aria-selected="true"]{color:#0f140e}}
+/* cards */
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:14px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);display:flex;flex-direction:column;gap:10px;min-width:0}
+.card h3{font-size:1.02rem;line-height:1.2}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:.7rem;font-weight:700;letter-spacing:.03em;text-transform:uppercase;padding:3px 8px;border-radius:999px;border:1px solid var(--line)}
+.c-active{background:var(--sage-soft);color:var(--good);border-color:transparent}
+.c-paused{background:var(--warn-bg);color:var(--warn);border-color:transparent}
+.c-crit{background:var(--crit-bg);color:var(--crit);border-color:transparent}
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px 6px;font-variant-numeric:tabular-nums}
+.metrics div{min-width:0}
+.metrics .m{font-size:.66rem;color:var(--muted);text-transform:uppercase;letter-spacing:.02em}
+.metrics .x{font-size:1rem;font-weight:650;font-family:var(--serif)}
+.cardfoot{display:flex;flex-wrap:wrap;gap:8px;margin-top:auto;font-size:.82rem}
+.cardfoot a{display:inline-flex;align-items:center;gap:5px;border:1px solid var(--line);border-radius:8px;padding:4px 9px;text-decoration:none;color:var(--pine);background:var(--surface-2)}
+.why{font-size:.85rem;color:var(--muted)}
+.why b{color:var(--ink)}
+.tablewrap{overflow-x:auto;border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}
+table{border-collapse:collapse;width:100%;font-size:.86rem;font-variant-numeric:tabular-nums;background:var(--surface)}
+th,td{padding:9px 11px;text-align:right;border-bottom:1px solid var(--line);white-space:nowrap}
+th:first-child,td:first-child{text-align:left;white-space:normal;min-width:180px}
+thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.04em;color:var(--muted);font-weight:700}
+tbody tr:last-child td{border-bottom:0}
+.pos{color:var(--good);font-weight:650}.neg{color:var(--crit);font-weight:650}
+.q{display:grid;grid-template-columns:1fr;gap:12px}
+.q .item{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--pine);border-radius:0 12px 12px 0;padding:13px 15px;box-shadow:var(--shadow)}
+.q .item p{margin:.2em 0;font-size:.92rem}
+.q .item .ask{font-weight:650}
+.brief{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+.brief .b{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:var(--shadow);min-width:0}
+.brief .b .p{font-size:.7rem;font-weight:700;color:var(--pine);letter-spacing:.05em;text-transform:uppercase}
+.brief .b ul{margin:.5em 0 0;padding-left:18px;font-size:.88rem}
+.brief .b li{margin:.25em 0}
+.muted{color:var(--muted)}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:720px){.cols{grid-template-columns:1fr}.metrics{grid-template-columns:repeat(3,1fr)}}
+footer{padding-block:30px 48px;color:var(--muted);font-size:.82rem}
+.foot-src{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px;margin-top:10px}
+.foot-src div{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px 12px}
+.flag{background:var(--warn-bg);border:1px solid var(--line);border-radius:12px;padding:12px 14px;font-size:.86rem;margin-top:10px}
+</style>
+<style>html{-webkit-text-size-adjust:100%}body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+</head>
+<body>
+
+
+<div class="sticky"><div class="wrap"><b>Use Tricô — Criativos & Produtos</b><span class="tag">26/10 – 01/11/2026 · 7 dias</span></div></div>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="eyebrow">Relatório de performance · Meta Ads + GA4</div>
+  <h1>Criativos & Produtos</h1>
+  <p class="lede">Os sete dias de transição entre o inverno e o verão. A semana foi fraca na mídia, os heróis de outubro perderam força e novos campeões apareceram. Abaixo, o que vendeu, o que queimou verba e o que o time deve produzir.</p>
+  <div class="sub">
+    <span>Conta <b>USE TRICÔ · FUSO BR</b></span><span>Janela <b>26/10–01/11/2026</b></span>
+    <span>Fontes <b>Meta Ads · GA4</b> (via Windsor)</span><span class="muted">Read-only · nada alterado na conta</span>
+  </div>
+
+  <ol class="findings">
+    <li><b>Semana fraca.</b> ROAS Meta atribuído de <span class="num">2,64</span> na janela — abaixo do ritmo de outubro (<span class="num">4,27</span>, do relatório consolidado). CPA de <span class="num">R$263</span> na janela.</li>
+    <li><b>Os heróis de outubro perderam força.</b> Camisa Nozinho (líder em outubro no consolidado, ROAS 6,0) rendeu <span class="num">0,7</span> na janela — e seguia <b>ativa</b>, gastando R$1.377 para 1 compra. Camisa Linho ficou em 0,3 e foi pausada.</li>
+    <li><b>Novos líderes.</b> Calça Linho Prateleira (ROAS 8,5), Bibiana (18 compras, R$14,6 mil), Carrossel Biamar (6,0) e a linha Biamar (4,9–7,4) sustentaram a receita.</li>
+    <li><b>Produtos que vendem com pouca mídia.</b> Regata Nati (21 un, conv 2,4%) e Calça Jeans Paula (12 un) venderam bem sem anúncio dedicado identificável; Vestido Antonia (nº1 em receita no site) teve só entrega mínima (R$40).</li>
+    <li><b>Muito interesse, pouca compra.</b> Blusa/T-shirt Biamar teve 2.640–3.150 visualizações de produto e conversão de 0,3–0,6% — e o anúncio dela estava <b>pausado</b>.</li>
+  </ol>
+</header>
+
+<section>
+  <div class="eyebrow">Indicadores da janela</div>
+  <h2>Como foi a semana</h2>
+  <p class="lede">Métricas do Meta Ads, agregadas de 113 linhas de anúncio com gasto. Taxas recalculadas a partir das contagens-base (não médias de médias).</p>
+  <div class="kpis" style="margin-top:16px">
+    <div class="kpi"><div class="k">Investimento</div><div class="v num">R$32,1 mil</div><div class="d">na conta BR</div></div>
+    <div class="kpi"><div class="k">Compras (Meta)</div><div class="v num">122</div><div class="d">eventos atribuídos</div></div>
+    <div class="kpi"><div class="k">Receita Meta</div><div class="v num">R$84,8 mil</div><div class="d">atribuída pelo pixel</div></div>
+    <div class="kpi"><div class="k">ROAS Meta</div><div class="v num">2,64</div><div class="d">de plataforma, não caixa</div></div>
+    <div class="kpi"><div class="k">CPA</div><div class="v num">R$263</div><div class="d">custo por compra</div></div>
+    <div class="kpi"><div class="k">CTR de link</div><div class="v num">1,79%</div><div class="d">CPM R$20,13</div></div>
+    <div class="kpi"><div class="k">ATC · Checkout</div><div class="v num">319 · 278</div><div class="d">add-to-cart / iniciados</div></div>
+  </div>
+  <div class="note" style="margin-top:14px">⚠️ <b>Três receitas diferentes, não somáveis.</b> A <b>Receita Meta</b> (R$84,8 mil) é atribuída pelo pixel na janela da plataforma. O <b>GA4</b> registrou R$136,4 mil / 319 unidades no mesmo período (população e janela próprias). A <b>receita aprovada da Tray</b> (caixa, autoridade comercial) não está reconciliada aqui. ROAS de plataforma ≠ caixa aprovado ≠ incrementalidade.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Entrega × status atual</div>
+  <h2>Onde a verba rodou</h2>
+  <p class="lede">O gasto aconteceu dentro da janela; o status mostrado é o <b>atual</b> (um anúncio pode ter rodado e já estar pausado). Metade da verba da semana está hoje em estruturas pausadas.</p>
+  <div class="stbar" aria-hidden="true">
+    <i style="width:48.1%;background:var(--pine)"></i><i style="width:19.7%;background:var(--sage)"></i>
+    <i style="width:16.5%;background:var(--warn)"></i><i style="width:15.7%;background:var(--crit)"></i>
+  </div>
+  <div class="stleg">
+    <span><span class="dot" style="background:var(--pine)"></span>Ativo — R$15,4 mil · ROAS 3,47 · 68 compras</span>
+    <span><span class="dot" style="background:var(--sage)"></span>Campanha pausada — R$6,3 mil · ROAS 1,69</span>
+    <span><span class="dot" style="background:var(--warn)"></span>Anúncio pausado — R$5,3 mil · ROAS 1,69</span>
+    <span><span class="dot" style="background:var(--crit)"></span>Conjunto pausado — R$5,0 mil · ROAS 2,30</span>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Ranking de criativos</div>
+  <h2>O que funcionou — e o que queimou verba</h2>
+  <p class="lede">Critério de cada aba explícito. Evitamos premiar 1 compra com ROAS alto como se fosse mais comprovado que um anúncio com 18 compras: os rankings de eficiência exigem amostra.</p>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-panel="p-rec">Campeões (receita + volume)</button>
+    <button role="tab" aria-selected="false" data-panel="p-burn">Alto gasto, baixo retorno</button>
+    <button role="tab" aria-selected="false" data-panel="p-paused">Pausados com bom ROAS</button>
+    <button role="tab" aria-selected="false" data-panel="p-promising">Promissores, pouca entrega</button>
+  </div>
+
+  <div id="p-rec" class="grid" role="tabpanel">
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Bibiana</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">Vídeo · topo amplo · destino post do Instagram. <b>Maior volume e maior receita da janela.</b></div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$2.799</div></div><div><div class="m">Compras</div><div class="x">18</div></div><div><div class="m">ROAS</div><div class="x pos">5,2</div></div>
+        <div><div class="m">Receita</div><div class="x">R$14,6k</div></div><div><div class="m">CPA</div><div class="x">R$156</div></div><div><div class="m">CTR link</div><div class="x">4,07%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.instagram.com/p/DdTgiHYsdrn/" target="_blank" rel="noopener">▶ Post IG</a><a href="https://fb.me/1Wnwn7yi6EKlgFK" target="_blank" rel="noopener">Prévia do anúncio</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Calça Linho Prateleira</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">Vídeo · amplo aberto · post IG. <b>Melhor eficiência com volume</b> (9 compras, ROAS 8,5). Produto de verão.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.051</div></div><div><div class="m">Compras</div><div class="x">9</div></div><div><div class="m">ROAS</div><div class="x pos">8,5</div></div>
+        <div><div class="m">Receita</div><div class="x">R$8,9k</div></div><div><div class="m">CPA</div><div class="x">R$117</div></div><div><div class="m">CTR link</div><div class="x">2,78%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.instagram.com/p/DePtEdpsR2o/" target="_blank" rel="noopener">▶ Post IG</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Carrossel Biamar</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">Carrossel/catálogo (sem post IG). ROAS 6,0 com 8 compras — formato de coleção associado a bom resultado na linha Biamar (observacional; candidato a teste controlado).</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.285</div></div><div><div class="m">Compras</div><div class="x">8</div></div><div><div class="m">ROAS</div><div class="x pos">6,0</div></div>
+        <div><div class="m">Receita</div><div class="x">R$7,7k</div></div><div><div class="m">CPA</div><div class="x">R$161</div></div><div><div class="m">CTR link</div><div class="x">3,77%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://fb.me/25J3DMFrXnpFhEg" target="_blank" rel="noopener">Prévia do anúncio</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Camisa Biamar Linho 12276</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">Vídeo · post IG. Alcance grande e barato (CPM R$12,5), CTR 3,42%, 9 compras.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.207</div></div><div><div class="m">Compras</div><div class="x">9</div></div><div><div class="m">ROAS</div><div class="x pos">4,9</div></div>
+        <div><div class="m">Receita</div><div class="x">R$5,9k</div></div><div><div class="m">CPA</div><div class="x">R$134</div></div><div><div class="m">CTR link</div><div class="x">3,42%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.instagram.com/p/DcWqBz8s7sw/" target="_blank" rel="noopener">▶ Post IG</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Blusa Biamar Essencial 12303</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">Vídeo · post IG · remarketing. ROAS 7,4 — recolhe demanda quente com pouca verba.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$450</div></div><div><div class="m">Compras</div><div class="x">2</div></div><div><div class="m">ROAS</div><div class="x pos">7,4</div></div>
+        <div><div class="m">Receita</div><div class="x">R$3,3k</div></div><div><div class="m">CPA</div><div class="x">R$225</div></div><div><div class="m">Freq</div><div class="x">5,3</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.instagram.com/p/Dc9bh-hMUnS/" target="_blank" rel="noopener">▶ Post IG</a><span class="muted" style="font-size:.78rem">amostra baixa (2 compras)</span></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Looks Verde</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">Catálogo/looks. ROAS 5,0, CTR 4,26% — curadoria de looks associada a bom resultado (observacional).</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$595</div></div><div><div class="m">Compras</div><div class="x">4</div></div><div><div class="m">ROAS</div><div class="x pos">5,0</div></div>
+        <div><div class="m">Receita</div><div class="x">R$3,0k</div></div><div><div class="m">CPA</div><div class="x">R$149</div></div><div><div class="m">CTR link</div><div class="x">4,26%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://fb.me/23pg3Q05xDIcmMH" target="_blank" rel="noopener">Prévia do anúncio</a></div>
+    </div>
+  </div>
+
+  <div id="p-burn" class="grid" role="tabpanel" hidden>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Camisa Nozinho — Geral</h3><span class="chip c-crit">Ativo · drenando</span></div>
+      <div class="why"><b>O herói de outubro perdeu força.</b> ROAS 6,0 em out (consolidado); na janela: 1 compra, ATC 1, IC 1 em R$1.377. <b>Hipótese</b> de perda de força do criativo — os dados confirmam o baixo retorno, mas não isolam fadiga (frequência só 1,3). <b>Ação: pausar e renovar o criativo.</b></div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.377</div></div><div><div class="m">Compras</div><div class="x">1</div></div><div><div class="m">ROAS</div><div class="x neg">0,7</div></div>
+        <div><div class="m">CPA</div><div class="x neg">R$1.377</div></div><div><div class="m">CTR link</div><div class="x">2,02%</div></div><div><div class="m">Freq</div><div class="x">1,3</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.instagram.com/p/DePn8Kns1-8/" target="_blank" rel="noopener">▶ Post IG</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Camisa Linho — Geral</h3><span class="chip c-paused">Pausado</span></div>
+      <div class="why">Também caiu forte: ROAS 0,3 em R$1.994 (3 compras) antes de ser pausada. Mesmo lote 08/10 do Nozinho; causa a investigar (frequência 2,3 não isola fadiga).</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.994</div></div><div><div class="m">Compras</div><div class="x">3</div></div><div><div class="m">ROAS</div><div class="x neg">0,3</div></div>
+        <div><div class="m">CPA</div><div class="x neg">R$665</div></div><div><div class="m">CTR link</div><div class="x">2,16%</div></div><div><div class="m">Freq</div><div class="x">2,3</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.instagram.com/p/DePouVrMfOf/" target="_blank" rel="noopener">▶ Post IG</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Outlet — imagens</h3><span class="chip c-paused">Conjunto pausado</span></div>
+      <div class="why">Blast de alcance barato (492 mil impressões, CPM R$2,6) mas CTR de link 0,45% e 1 compra. Alcance não é resultado.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.283</div></div><div><div class="m">Compras</div><div class="x">1</div></div><div><div class="m">ROAS</div><div class="x neg">0,5</div></div>
+        <div><div class="m">Impressões</div><div class="x">492k</div></div><div><div class="m">CTR link</div><div class="x">0,45%</div></div><div><div class="m">Destino</div><div class="x" style="font-size:.8rem">/outlet</div></div>
+      </div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Aquecimento de Live</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">Otimizada para <b>THRUPLAY</b> (visualização), não compra — por isso ROAS de pixel 0. A venda da live é on-site/tele. Não ler como receita zero; medir no site.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.179</div></div><div><div class="m">Impressões</div><div class="x">254k</div></div><div><div class="m">ROAS pixel</div><div class="x muted">n/a</div></div>
+        <div><div class="m">LPV</div><div class="x">1</div></div><div><div class="m">CPM</div><div class="x">R$4,6</div></div><div><div class="m">Objetivo</div><div class="x" style="font-size:.8rem">ThruPlay</div></div>
+      </div>
+    </div>
+  </div>
+
+  <div id="p-paused" class="grid" role="tabpanel" hidden>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Flexível T-shirts Biamar</h3><span class="chip c-paused">Conjunto pausado</span></div>
+      <div class="why"><b>Pausado apesar de ROAS 4,1</b> (6 compras). Destino = categoria t-shirts Biamar — associável ao produto de maior interesse no site (correspondência por nome, não chave de SKU). <b>Candidato a reativar</b>, condicionado a estoque/margem/teste.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$980</div></div><div><div class="m">Compras</div><div class="x">6</div></div><div><div class="m">ROAS</div><div class="x pos">4,1</div></div>
+        <div><div class="m">Receita</div><div class="x">R$4,0k</div></div><div><div class="m">CPA</div><div class="x">R$163</div></div><div><div class="m">CTR link</div><div class="x">2,63%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.usetrico.com.br/t-shirts-biamar" target="_blank" rel="noopener">Destino</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Chemise — Busca Geral</h3><span class="chip c-paused">Pausado</span></div>
+      <div class="why">ROAS 4,0 com 5 compras. Destino era página de busca (raso) — reaproveitar com <b>PDP limpo</b> e religar.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$1.239</div></div><div><div class="m">Compras</div><div class="x">5</div></div><div><div class="m">ROAS</div><div class="x pos">4,0</div></div>
+        <div><div class="m">Receita</div><div class="x">R$4,9k</div></div><div><div class="m">CPA</div><div class="x">R$248</div></div><div><div class="m">CTR link</div><div class="x">2,71%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.instagram.com/p/DePnE7HMz3i/" target="_blank" rel="noopener">▶ Post IG</a></div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Camisa Bianca</h3><span class="chip c-paused">Conjunto pausado</span></div>
+      <div class="why">ROAS 4,4 com 4 compras e CTR de link 5,53% (elevado no grupo destacado). Destino = busca "bianca". <b>Avaliar reativação com destino PDP 11225.</b></div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$642</div></div><div><div class="m">Compras</div><div class="x">4</div></div><div><div class="m">ROAS</div><div class="x pos">4,4</div></div>
+        <div><div class="m">Receita</div><div class="x">R$2,8k</div></div><div><div class="m">CPA</div><div class="x">R$160</div></div><div><div class="m">CTR link</div><div class="x pos">5,53%</div></div>
+      </div>
+      <div class="cardfoot"><a href="https://www.usetrico.com.br/loja/busca.php?loja=1547623&palavra_busca=bianca" target="_blank" rel="noopener">Destino (busca)</a></div>
+    </div>
+  </div>
+
+  <div id="p-promising" class="grid" role="tabpanel" hidden>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Vestido Antonia Linho</h3><span class="chip c-active">Ativo</span></div>
+      <div class="why">ROAS 20,6 em apenas R$40 (1 compra). <b>Sinal, não prova</b> — amostra mínima. Vale escalar com teste controlado; é também o nº1 de receita no site.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$40</div></div><div><div class="m">Compras</div><div class="x">1</div></div><div><div class="m">ROAS</div><div class="x">20,6*</div></div>
+      </div>
+      <div class="why muted">*baixa confiança — 1 compra.</div>
+    </div>
+    <div class="card">
+      <div style="display:flex;justify-content:space-between;gap:8px;align-items:start"><h3>Algodão Alfaiataria</h3><span class="chip c-paused">Conjunto pausado</span></div>
+      <div class="why">ROAS 9,5 em R$63 (2 compras). Coleção Sintonia. Testar com mais verba antes de concluir.</div>
+      <div class="metrics">
+        <div><div class="m">Gasto</div><div class="x">R$63</div></div><div><div class="m">Compras</div><div class="x">2</div></div><div><div class="m">ROAS</div><div class="x">9,5*</div></div>
+      </div>
+      <div class="why muted">*amostra baixa.</div>
+    </div>
+  </div>
+  <div class="flag">🔎 <b>Prévias.</b> Os links "Post IG" são os posts reais usados como criativo (públicos; o conteúdo do vídeo exige login no Instagram, então o <i>teardown</i> de gancho/ritmo/CTA abaixo é hipótese a confirmar assistindo à peça). "Prévia do anúncio" abre o preview do Meta.</div>
+</section>
+
+<section>
+  <div class="eyebrow">Inteligência de produtos · GA4</div>
+  <h2>O que o site vendeu</h2>
+  <p class="lede">Métricas de item do GA4 na janela (não são pedidos aprovados da Tray, nem compras do Meta). Não usamos "sessões por produto": o agrupamento repete contagens entre variantes — lacuna declarada. Usamos visualizações de item, adições ao carrinho e unidades.</p>
+  <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-panel="pr-rev">Receita & unidades</button>
+    <button role="tab" aria-selected="false" data-panel="pr-int">Interesse × compra</button>
+  </div>
+  <div id="pr-rev" role="tabpanel">
+    <div class="tablewrap"><table>
+      <thead><tr><th>Produto</th><th>Receita</th><th>Unid.</th><th>Views</th><th>ATC</th><th>Conv.</th></tr></thead>
+      <tbody>
+        <tr><td>Vestido Antonia Linho Italiano Midi</td><td>R$7.199</td><td>9</td><td>656</td><td>14</td><td>1,4%</td></tr>
+        <tr><td>Calça Jeans Reta Paula</td><td>R$5.159</td><td>12</td><td>784</td><td>29</td><td class="pos">1,5%</td></tr>
+        <tr><td>Calça Biamar Alfaiataria 11567</td><td>R$4.619</td><td>11</td><td>1.183</td><td>17</td><td>0,9%</td></tr>
+        <tr><td>Regata Nati Canelada 44726</td><td>R$4.618</td><td>21</td><td>889</td><td>43</td><td class="pos">2,4%</td></tr>
+        <tr><td>Casaco Nati Ponto Pérola 43226 <span class="muted">(inverno)</span></td><td>R$3.959</td><td>9</td><td>370</td><td>9</td><td class="pos">2,4%</td></tr>
+        <tr><td>Blusa/T-shirt Biamar (variante A)</td><td>R$3.738</td><td>17</td><td>2.640</td><td>58</td><td class="neg">0,6%</td></tr>
+        <tr><td>Camisa Manuela Linho Capri 14025</td><td>R$3.000</td><td>5</td><td>1.249</td><td>28</td><td class="neg">0,4%</td></tr>
+        <tr><td>Camisa Mullet Poá Bianca 11225</td><td>R$3.000</td><td>5</td><td>427</td><td>12</td><td>1,2%</td></tr>
+        <tr><td>Calça Jane em Algodão</td><td>R$3.149</td><td>7</td><td>183</td><td>5</td><td class="pos">3,8%</td></tr>
+      </tbody>
+    </table></div>
+    <p class="muted" style="font-size:.82rem">Totais GA4 da janela: R$136,4 mil · 319 unidades · 1.321 itens distintos.</p>
+  </div>
+  <div id="pr-int" role="tabpanel" hidden>
+    <div class="cols">
+      <div>
+        <h3 style="margin-bottom:8px">Muito interesse, pouca compra</h3>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Produto</th><th>Views</th><th>Conv.</th><th>Unid.</th></tr></thead>
+          <tbody>
+            <tr><td>Blusa/T-shirt Biamar (var. B)</td><td>3.150</td><td class="neg">0,32%</td><td>10</td></tr>
+            <tr><td>Blusa/T-shirt Biamar (var. A)</td><td>2.640</td><td class="neg">0,64%</td><td>17</td></tr>
+            <tr><td>Camisa Manuela Linho</td><td>1.249</td><td class="neg">0,40%</td><td>5</td></tr>
+            <tr><td>Calça Biamar Alfaiataria</td><td>1.183</td><td>0,93%</td><td>11</td></tr>
+          </tbody>
+        </table></div>
+        <p class="why">Alto volume de visualizações por unidade comprada. Hipóteses a investigar antes de subir mídia: PDP, preço, grade, oferta, tráfego ou mensuração — o dado não localiza o abandono.</p>
+      </div>
+      <div>
+        <h3 style="margin-bottom:8px">Pouca exposição, boa resposta</h3>
+        <div class="tablewrap"><table>
+          <thead><tr><th>Produto</th><th>Views</th><th>Conv.</th><th>Unid.</th></tr></thead>
+          <tbody>
+            <tr><td>Casaco Nati (inverno)</td><td>370</td><td class="pos">2,4%</td><td>9</td></tr>
+            <tr><td>Calça Jane em Algodão</td><td>183</td><td class="pos">3,8%</td><td>7</td></tr>
+            <tr><td>Manguito/Casaco Biamar</td><td>200</td><td class="pos">2,5%</td><td>5</td></tr>
+          </tbody>
+        </table></div>
+        <p class="why">Convertem acima da média com pouca vitrine. Candidatos a mais mídia — <b>exceto o que é de inverno</b> na virada para o verão.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Cruzamento produto × criativo</div>
+  <h2>Estamos anunciando o que vende?</h2>
+  <div class="q">
+    <div class="item"><p class="ask">1. Anunciamos os produtos que mais vendem?</p><p>Parcialmente. Biamar (camisa, blusa, carrossel) e Calça Linho têm anúncio e vendem. Mas <b>Regata Nati (21 un) e Calça Jeans Paula (12 un) venderam quase sem mídia dedicada;</b> Vestido Antonia (nº1 receita) teve só entrega mínima (R$40).</p></div>
+    <div class="item"><p class="ask">2. O que vende no site mas recebe pouca mídia?</p><p>Regata Nati, Calça Jeans Paula, Calça Jane (conv 3,8%) e Vestido Antonia (só entrega mínima). Oportunidade direta de novos criativos.</p></div>
+    <div class="item"><p class="ask">3. O que recebe verba e responde mal?</p><p>Camisa Nozinho (R$1.377 → ROAS 0,7), Camisa Linho (R$1.994 → 0,3), Outlet-imagens (R$1.283 → 0,5), Sueter/Modeladora (campanhas pausadas, ROAS 1,6). Verba em peças de inverno e criativos que perderam força (causa a investigar).</p></div>
+    <div class="item"><p class="ask">4. Criativos vencedores anunciam produto com disponibilidade incerta?</p><p>Camisa Bianca (ROAS 4,4) aponta para <b>busca</b>, não PDP; o PDP vivo é o SKU 11225. Grade por tamanho não é verificável aqui — <b>validar no admin antes de escalar</b>.</p></div>
+    <div class="item"><p class="ask">5. Que formato com bom resultado dá para transferir?</p><p>O par <b>vídeo de peça única → post IG</b> (Bibiana, Calça Linho, Camisa Biamar) e o <b>carrossel de coleção</b> (Carrossel Biamar, ROAS 6,0) — associação observacional. Transferir, como teste, para Regata Nati, Vestido Antonia e Calça Paula.</p></div>
+    <div class="item"><p class="ask">6. Pausamos criativos que iam bem?</p><p>Sim: Flexível T-shirts (ROAS 4,1), Chemise (4,0), Camisa Bianca (4,4) estão pausados. Reavaliar reativação com destino corrigido.</p></div>
+    <div class="item"><p class="ask">7. Concentramos verba em poucos produtos?</p><p>O topo ativo concentrou-se em Bibiana + linha Biamar + Calça Linho. Saudável enquanto performam, mas a base de criativos vencedores de verão ainda é estreita — risco de nova fadiga.</p></div>
+    <div class="item"><p class="ask">8. Dá para reforçar verão sem abandonar a base?</p><p>Sim: a base recorrente responde no remarketing (Blusa Biamar Essencial ROAS 7,4); o resultado comercial das lives não foi verificado aqui (on-site/tele, D+1). O verão entra pela aquisição com Regata/Linho/Vestido. Frentes separadas, não concorrentes.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Plano de produção criativa</div>
+  <h2>O que o time deve gravar</h2>
+  <p class="lede">Lotes por prioridade comercial. Conceitos com evidência primeiro; nada de 50 ideias genéricas. Destino sempre PDP vivo ou post IG — nunca página de busca.</p>
+  <div class="brief">
+    <div class="b"><div class="p">Lote 1 · renovar os criativos que perderam força</div><h3>Nozinho & Camisa Linho — versão nova</h3>
+      <ul>
+        <li><b>Por quê:</b> heróis de out que caíram a ROAS 0,3–0,7 (causa a investigar; possível perda de força do criativo).</li>
+        <li><b>Gancho (0–3s):</b> caimento em movimento + "chegou em nova cor".</li>
+        <li><b>Cenas:</b> vestir, girar, detalhe do nózinho/tecido, look montado.</li>
+        <li><b>Formato:</b> vídeo 9:16, 12–20s · <b>destino:</b> post IG ou PDP vivo.</li>
+        <li><b>Teste:</b> criativo novo vs. pausar o antigo · <b>métrica:</b> CPA ≤ R$160.</li>
+      </ul>
+    </div>
+    <div class="b"><div class="p">Lote 1 · produto que vende sem mídia</div><h3>Regata Nati — vídeo dedicado</h3>
+      <ul>
+        <li><b>Por quê:</b> 21 un e conv 2,4% no site, quase sem anúncio. Verão.</li>
+        <li><b>Gancho:</b> "a regata que vai do trabalho ao fim de semana".</li>
+        <li><b>Cenas:</b> 3 cores, caimento no corpo, prova de conforto (algodão canelado).</li>
+        <li><b>Formato:</b> vídeo curto + variação carrossel de cores.</li>
+        <li><b>Público:</b> amplo verão · <b>métrica:</b> ROAS ≥ 4 em 3 dias.</li>
+      </ul>
+    </div>
+    <div class="b"><div class="p">Lote 1 · formato vencedor transferido</div><h3>Vestido Antonia & Calça Paula</h3>
+      <ul>
+        <li><b>Por quê:</b> nº1 e nº2 de receita no site, com entrega mínima / sem criativo dedicado.</li>
+        <li><b>Referência:</b> estrutura do "Bibiana" (vídeo peça única → post IG).</li>
+        <li><b>Benefício:</b> Vestido = ocasião/elegância; Paula = modela a cintura.</li>
+        <li><b>Destino:</b> PDP do produto · <b>hipótese:</b> demanda latente converte com vitrine.</li>
+      </ul>
+    </div>
+    <div class="b"><div class="p">Lote 2 · corrigir e reativar</div><h3>T-shirt & Camisa Bianca Biamar</h3>
+      <ul>
+        <li><b>Por quê:</b> T-shirt tem 2.640–3.150 views e conv 0,3–0,6%; Bianca CTR 5,53%.</li>
+        <li><b>Antes de subir:</b> revisar PDP (preço/grade/foto) e trocar destino de busca → PDP 11225.</li>
+        <li><b>Criativo:</b> destacar o detalhe em tricô e as cores; prova de caimento.</li>
+        <li><b>Métrica:</b> conversão da PDP acima de 1% antes de escalar.</li>
+      </ul>
+    </div>
+    <div class="b"><div class="p">Lote 2 · coleção</div><h3>Carrossel de coleção (Sintonia/Verão)</h3>
+      <ul>
+        <li><b>Por quê:</b> carrossel Biamar deu ROAS 6,0; looks verde ROAS 5,0.</li>
+        <li><b>Conceito:</b> 5–7 peças de verão em grade de looks, uma oferta clara.</li>
+        <li><b>Destino:</b> coleção/looks com estoque confirmado.</li>
+      </ul>
+    </div>
+    <div class="b"><div class="p">Permanente · recorrência</div><h3>Remarketing da base</h3>
+      <ul>
+        <li><b>Por quê:</b> Blusa Biamar Essencial ROAS 7,4; base recorrente responde no remarketing (receita de live depende de reconciliação on-site/tele).</li>
+        <li><b>Criativo:</b> novidades + "mais vendidos" para quem já comprou.</li>
+        <li><b>Nota:</b> frequência da Essencial em 5,3 — rotacionar antes de saturar.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Integração com novembro</div>
+  <h2>Como isto serve a meta</h2>
+  <div class="cols">
+    <div class="note">
+      <b>Meta do mês:</b> R$950 mil aprovados (caixa Tray) · ROAS operacional ≥ 6 · desafio R$1,1 mi / ROAS 8. A semana veio abaixo do ritmo (ROAS de plataforma 2,64) — renovar criativos de verão e reavaliar os pausados eficientes estão entre os caminhos mais diretos de volta ao ritmo, condicionados a estoque, margem e teste.
+    </div>
+    <div class="note">
+      <b>Estrutura já existe</b> — amplo/misto, aquisição de novas, remarketing, catálogo, eventos/lives. Preferir <b>trocar criativo e corrigir destino</b> dentro do que já existe, em vez de criar campanha nova. O conjunto <span class="num">01 | RS | FEM | AMPLO | ADV+</span> inclui Brasil mas <b>exclui vários estados</b> — abrangência real RS/SC/PR, não nacional.
+    </div>
+  </div>
+  <div class="q" style="margin-top:14px">
+    <div class="item"><p class="ask">Datas de novembro</p><p>Lives nas terças (03, 10, 17, 24) + aniversário da Renata 18 · Black 27 · Cyber 30 · sorteio 02/12 (depende de validação jurídica antes de divulgar). Receita de live é on-site/tele (D+1), não ROAS de pixel.</p></div>
+  </div>
+</section>
+
+<section>
+  <div class="eyebrow">Comparação crítica</div>
+  <h2>Esta versão × a do ChatGPT</h2>
+  <div class="cols">
+    <div>
+      <h3 style="color:var(--good)">Onde esta versão avança</h3>
+      <ul>
+        <li>Separa <b>status durante a janela × status atual</b> e mostra que metade da verba está em estruturas pausadas.</li>
+        <li>Expõe o <b>colapso dos heróis de outubro</b> (Nozinho/Camisa Linho) — não só os vencedores.</li>
+        <li>Taxas <b>recalculadas das contagens-base</b> (CTR de link, CPM, frequência), não médias de médias.</li>
+        <li>Mantém <b>três receitas separadas</b> (Meta ≠ GA4 ≠ caixa Tray) e marca amostra baixa como sinal, não prova.</li>
+        <li>Cruzamento produto×criativo com <b>ação</b> e briefing priorizado por evidência.</li>
+      </ul>
+    </div>
+    <div>
+      <h3 style="color:var(--warn)">Onde ainda é inferior / a incorporar</h3>
+      <ul>
+        <li>A versão do ChatGPT pode trazer <b>miniaturas visuais dos criativos</b>; aqui os vídeos exigem login no IG (só prévia/preview linkada).</li>
+        <li>Falta <b>reconciliação com a Tray</b> (caixa aprovado por produto) — depende de acesso à planilha/painel.</li>
+        <li><b>Grade de estoque por tamanho/cor</b> não verificada (sem admin Tray) — lacuna que afeta decisão de mídia.</li>
+        <li>Vale incorporar da referência a <b>navegação por âncoras</b> e o tom de capa editorial.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer class="wrap">
+  <div class="eyebrow">Metodologia & fontes</div>
+  <p>Janela <b>26/10–01/11/2026</b>. Meta Ads conta BR <span class="num">776592648390960</span> (nível anúncio, 113 linhas com gasto); GA4 propriedade <span class="num">356113889</span> (métricas de item). Dados via Windsor, leitura. ROAS e CPA recalculados de gasto/valor/compras agregados por anúncio. <b>Read-only: nenhuma campanha, público ou orçamento foi alterado.</b></p>
+  <div class="foot-src">
+    <div><b>Fatos</b><br><span class="muted">gasto, impressões, cliques, compras e receita atribuída pelo Meta; métricas de item do GA4.</span></div>
+    <div><b>Hipóteses</b><br><span class="muted">teardown de gancho/ritmo/CTA dos vídeos (exigem login no IG); causas de conversão na PDP.</span></div>
+    <div><b>Lacunas que afetam decisão</b><br><span class="muted">caixa aprovado por produto (Tray); grade/estoque por tamanho e cor; sessões válidas por PDP.</span></div>
+  </div>
+  <p class="muted" style="margin-top:14px">Versão candidata para comparação. A URL pública sem login (formato da referência) é publicação externa e depende de autorização e QA anônimo.</p>
+</footer>
+
+</div>
+
+<script>
+document.querySelectorAll('.tabs').forEach(function(bar){
+  var btns=bar.querySelectorAll('button');
+  btns.forEach(function(btn){
+    btn.addEventListener('click',function(){
+      btns.forEach(function(b){
+        b.setAttribute('aria-selected','false');
+        var p=document.getElementById(b.dataset.panel); if(p) p.hidden=true;
+      });
+      btn.setAttribute('aria-selected','true');
+      var panel=document.getElementById(btn.dataset.panel); if(panel) panel.hidden=false;
+    });
+  });
+});
+</script>
+
+</body>
+</html>
